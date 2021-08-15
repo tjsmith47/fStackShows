@@ -2,3 +2,7 @@ __pycache__/
 .vscode/
 venv/
 db.sqlite3
+.env
+mecanosEnv
+db-mechanic-pi-4.sqlite3
+requirements-mechanic-pi4.txt

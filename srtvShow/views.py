@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Show
+from django import bcrypt
 
 #localhost:8000/shows
 def index(request):
