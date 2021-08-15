@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>All Shows Landing Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1 class="text-center">All Shows</h1>
+    <table method="GET" class="table table-dark table-striped table-hover col-striped">
+        <thead class="text-center">
+            <tr>
+                <th class="col">ID</th>
+                <th class="col">Title</th>
+                <th class="col">Description</th>
+                <th class="col">Release Date</th>
+                <th class="col">Description</th>
+                <th class="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            {% for show in all_shows %}
+            <tr class="table-responsive">
+                <td class="col">{{show.id}}</td>
+                <td class="col">{{ show.title }}</td>
+                <td class="col">{{ show.network }}</td>
+                <td class="col">{{ show.release_date }}</td>
+                <td class="col">{{ show.desc }}</td>
+                <td>
+                    <a href="/shows/{{ show.id }}" value="Show"> Show </a> |
+                    <a href="/shows/{{ show.id }}/edit" value="Edit"> Edit </a> | 
+                    <a href="/shows/{{ show.id }}/destroy" value="Delete"> Delete </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-center">
+        <a href="/shows/new" class="btn btn-primary center">Create a New Show</a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js"></script>
+</body>
+</html>

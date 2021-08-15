@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Edit a Show You Created</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body >
+    <h1 class="h1 text-center">Edit Show #{{show.id}}</h1>
+    {% if messages %}
+    <ul class="message">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <form action='/shows/{{ show.id }}/update' id="show" method='POST'>
+        {% csrf_token %}
+        <!-- Title Input Field -->
+        <div class="row mb-3 align-items-center">
+            <div class="col-md-2 text-center">
+                <label class="col-form-label" for="colFormLabel"><h4>Title</h4></label>
+            </div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="colFormLabel" name="title" value="{{ show.title }}" aria-label="title">
+            </div>
+        </div>
+        <div class="row mb-3 align-items-center">
+            <!-- Description Input Field -->
+            <div class="col-md-2 text-center">
+                <label class="col-form-label" for="description"><h4>Network</h4></label>
+            </div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="network" value="{{ show.network }}" aria-label="network">
+            </div>
+        </div>
+        <div class="row mb-3 align-items-center">
+            <!-- Release Date Input Field -->
+            <div class="col-md-2 text-center">
+                <label class="col-form-label" for="release_date"><h4>Release Date <br> (YYYY-MM-DD)</h4></label>
+            </div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="release_date" value="{{ show.release_date|date:'Y-m-d' }}" aria-label="release_date">
+            </div>
+        </div>
+        <div class="row mb-3 align-items-center">
+            <!-- Duration Input Field -->
+            <div class="col-md-2 text-center">
+                <label class="col-form-label" for="duration" class="input-group"><h4>Description</h4></label>
+            </div>
+            <div class="col-md-10">
+                <textarea name="description" id="description" cols="30" rows="10" class="form-control" aria-label="description">{{ show.desc }}</textarea>
+            </div>
+        </div>
+        <div class="row g-3 align-items-center">
+            <!-- Submit Button -->
+            <input class="btn btn-primary" type="submit" value="Update" aria-label="submit">
+            <a href="/shows" class="btn btn-danger">Cancel</a> 
+        </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Add a New Show</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body >
+    {% if messages %}
+    <ul class="message justify-center">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <h1 class="h1 text-center">Add a New Show</h1>
+    <form action='/shows/create' id="show" method='POST'>
+        {% csrf_token %}
+        <!-- Title Input Field -->
+        <div class="row mb-3 align-items-center">
+            <div class="col-md-2 text-center">
+                <label class="col-form-label" for="colFormLabel"><h4>Title</h4></label>
+            </div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" id="colFormLabel" placeholder="Ex: Game of Thrones" name="title" aria-label="title">
+            </div>
+        </div>
+        <div class="row mb-3 align-items-center">
+            <!-- Description Input Field -->
+            <div class="col-md-2 text-center">
+                <label class="col-form-label" for="description"><h4>Network</h4></label>
+            </div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="network" placeholder="Ex: HBO" aria-label="network">
+            </div>
+        </div>
+        <div class="row mb-3 align-items-center">
+            <!-- Release Date Input Field -->
+            <div class="col-md-2 text-center">
+                <label class="col-form-label" for="release_date"><h4>Release Date <br> (YYYY-MM-DD)</h4></label>
+            </div>
+            <div class="col-md-10">
+                <input class="form-control" type="text" name="release_date" placeholder="Ex: 2011-04-17" aria-label="release_date">
+            </div>
+        </div>
+        <div class="row mb-3 align-items-center">
+            <!-- Description Input Field -->
+            <div class="col-md-2 text-center">
+                <label class="col-form-label" for="description"><h4>Description<h4></label>
+            </div>
+            <div class="col-md-10">
+                <textarea name="description" id="description" cols="30" rows="7.5" placeholder="Ex: Two powerful families -- kings and queens, knights and renegades, liars and honest men -- playing a deadly game for control of the Seven Kingdoms of Westeros, and to sit atop the Iron Throne." class="form-control" aria-label="description"></textarea>
+            </div>
+        </div>
+        <div class="row g-3 align-items-center">
+            <!-- Submit Button -->
+            <input class="btn btn-primary" type="submit" value="Create" aria-label="submit"><a href="/shows" class="btn btn-danger">Cancel</a> 
+        </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+

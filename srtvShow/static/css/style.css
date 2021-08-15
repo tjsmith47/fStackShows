@@ -1,0 +1,44 @@
+body {
+    background-color: rgb(77, 77, 77);
+    justify-content: center;
+    padding-top: 2%;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+form {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+h1, h2, h4, label {
+    text-decoration: underline;
+    text-decoration-color: white;
+    text-underline-offset: 4px;
+}
+h1 {
+    margin-bottom: 2.5px;
+    padding: 5px;
+    color: black;
+}
+h2 {
+    size: larger;
+}
+label {
+    font-size: 1.5em;
+}
+.btn-group {
+    border: 1.5px solid black;
+    border-radius: 3px;
+    margin: 5px;
+}
+.h1 {
+    color: white;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    background-color: black;
+}
+#show {
+    background-color: gray;
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    padding: 1em;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Display Individual Show</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="text-center">
+        <h1 class="h1">TV Show #{{ show.id }}</h1>
+        <div class="text-left" id="show">
+            <br>
+            <h4>Title:</h4>
+            <p>{{ show.title }}</p>
+            <h4>Network:</h4>
+            <p>{{ show.network }}</p>
+            <h4>Release Date:</h4>
+            <p>{{ show.release_date }}</p>
+            <h4>Description:</h4>
+            <p>{{ show.desc }}</p>
+            <h4>Last Updated:</h4>
+            <p>{{ show.updated_at }}</p>
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <a href="/shows" class="btn btn-success">Looks Good!</a> 
+            <a href="/shows/{{ show.id }}/edit" class="btn btn-warning">Edit</a> 
+            <a href="/shows/{{ show.id }}/destroy" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js"></script>
+</body>
+</html>
